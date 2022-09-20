@@ -1,3 +1,4 @@
+package ru.netology.tests;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ru.netology.Manager;
@@ -74,4 +75,15 @@ public class ManagerTest {
         Ticket[] actual = manager.findAll();
     }
 
+    @Test
+    public void shouldTicketWhenOneParamNotMatch(){
+        manager.add(ticket1);
+        manager.add(ticket3);
+        manager.add(ticket4);
+
+        Ticket[] actual = manager.searchBy("DME", "LUX");
+        Ticket[] expected ={};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
 }
